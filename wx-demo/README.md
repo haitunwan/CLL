@@ -18,6 +18,8 @@
 
 【1】.官网下载nginx，下载之后的目录如下：
 
+![nginx 目录](https://github.com/haitunwan/CLL/blob/master/project_img/nginx.png)
+
 【2】.在conf——>nginx.conf文件中http下的server中，添加：
 
 location /v2/ { 
