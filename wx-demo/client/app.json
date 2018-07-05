@@ -1,0 +1,49 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/addCgi/addCgi",
+    "pages/map/map",
+    "pages/movies/movies",
+    "pages/movies/movie-detail/movie-detail",
+    "pages/news/news",
+    "pages/more/more",
+    "pages/switchcity/switchcity",
+    "pages/weather/weather",
+    "pages/logs/logs"
+  ],
+  "window": {
+    "backgroundColor": "#F6F6F6",
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#2a579a",
+    "navigationBarTitleText": "My First WeChat",
+    "navigationBarTextStyle": "white"
+  },
+  "tabBar": {
+    "position": "top",
+    "backgroundColor": "#2a579a",
+    "color": "#DCEDC8",
+    "selectedColor": "#DEEDA0",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页"
+      },
+      {
+        "pagePath": "pages/map/map",
+        "text": "周边"
+      },
+      {
+        "pagePath": "pages/movies/movies",
+        "text": "电影"
+      },
+      {
+        "pagePath": "pages/news/news",
+        "text": "新闻"
+      },
+      {
+        "pagePath": "pages/more/more",
+        "text": "更多"
+      }
+    ]
+  }
+}
