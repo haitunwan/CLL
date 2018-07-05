@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>示例</title>
+    <link href="css/pages/wall2.css" rel="stylesheet" type="text/css">
+    <script type="text/javascript">
+       window.onload = function () {
+           imgLocation("container","box");
+           //实现滚动条加载数据
+           var imgData = {"data": [{"src":"1.jpeg"},{"src":"2.jpeg"},{"src":"3.jpg"},{"src":"4.jpeg"},{"src":"5.jpg"},{"src":"6.jpg"}]};
+           window.onscroll = function () {
+               if(checkFlag()){
+                    var cparent = document.getElementById("container");
+                   for(var i=0; i<imgData.data.length; i++){
+                       var ccontent = document.createElement("div");
+                       ccontent.className = "box";
+                       cparent.appendChild(ccontent);
+                       var boximg = document.createElement("div");
+                       boximg.className = "box_img";
+                       ccontent.appendChild(boximg);
+                       var img = document.createElement("img");
+                       img.src = "image/"+imgData.data[i].src;
+                       boximg.appendChild(img);
+                   }
+                   imgLocation("container","box");
+               }
+           }
+       }
+       function checkFlag() {
+           var cparent = document.getElementById("container");
+           var ccontent = getChildElement(cparent,"box");
+           //获取最后一张图片的距离浏览器顶部的高度
+           var lastContentHeight = ccontent[ccontent.length-1].offsetTop;
+           //获取滚动条距顶部的距离，也就是多出的隐藏部分的高度
+           var scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+           //浏览器的高度
+           var pageHeight = document.documentElement.clientHeight || document.body.clientHeight;
+           if(lastContentHeight<scrollTop+pageHeight){
+               return true;
+           }
+       }
+        function imgLocation(parent,content) {
+           //将parent下的所有的content全部取出
+            var cparent = document.getElementById(parent);
+            var ccontent = getChildElement(cparent,content);
+
+            //得到浏览器一行可以放几列图片
+            var imgWidth = ccontent[0].offsetWidth;
+            var num = Math.floor(document.documentElement.clientWidth / imgWidth);
+
+            cparent.style.cssText = "width:"+imgWidth*num + "px; margin:0 auto";
+
+            var BoxHeightArr = [];
+            for(var i = 0; i<ccontent.length; i++){
+                if(i<num){
+                    BoxHeightArr[i] = ccontent[i].offsetHeight;
+                }else {
+                    var minHeight = Math.min.apply(null,BoxHeightArr);
+                    var minIndex = getminheightLocation(BoxHeightArr,minHeight);
+                    ccontent[i].style.position = "absolute";
+                    ccontent[i].style.top = minHeight + "px";
+                    ccontent[i].style.left = ccontent[minIndex].offsetLeft + "px";
+                    BoxHeightArr[minIndex] = BoxHeightArr[minIndex] + ccontent[i].offsetHeight;
+                }
+            }
+        }
+        function getminheightLocation(BoxHeightArr, minHeight) {
+           for(var i in BoxHeightArr){
+               if(BoxHeightArr[i] == minHeight){
+                   return i;
+               }
+           }
+        }
+        function getChildElement(parent,content) {
+            var contentArr = [];
+            var allcontent = parent.getElementsByTagName("*");
+            for (var i = 0; i<allcontent.length; i++){
+                if(allcontent[i].className == content){
+                    contentArr.push(allcontent[i]);
+                }
+            }
+            return contentArr;
+        }
+    </script>
+</head>
+<body>
+    <div id="container">
+        <div class="box">
+            <div class="box_img">
+                <img src="image/1.jpeg">
+            </div>
+        </div>
+        <div class="box">
+            <div class="box_img">
+                <img src="image/2.jpeg">
+            </div>
+        </div>
+        <div class="box">
+            <div class="box_img">
+                <img src="image/3.jpg">
+            </div>
+        </div>
+        <div class="box">
+            <div class="box_img">
+                <img src="image/4.jpeg">
+            </div>
+        </div>
+        <div class="box">
+            <div class="box_img">
+                <img src="image/5.jpg">
+            </div>
+        </div>
+        <div class="box">
+            <div class="box_img">
+                <img src="image/6.jpg">
+            </div>
+        </div>
+        <div class="box">
+            <div class="box_img">
+                <img src="image/7.jpg">
+            </div>
+        </div>
+        <div class="box">
+            <div class="box_img">
+                <img src="image/8.jpg">
+            </div>
+        </div>
+        <div class="box">
+            <div class="box_img">
+                <img src="image/9.jpg">
+            </div>
+        </div>
+        <div class="box">
+            <div class="box_img">
+                <img src="image/10.jpg">
+            </div>
+        </div>
+        <div class="box">
+            <div class="box_img">
+                <img src="image/1.jpeg">
+            </div>
+        </div>
+        <div class="box">
+            <div class="box_img">
+                <img src="image/2.jpeg">
+            </div>
+        </div>
+        <div class="box">
+            <div class="box_img">
+                <img src="image/3.jpg">
+            </div>
+        </div>
+        <div class="box">
+            <div class="box_img">
+                <img src="image/4.jpeg">
+            </div>
+        </div>
+        <div class="box">
+            <div class="box_img">
+                <img src="image/5.jpg">
+            </div>
+        </div>
+        <div class="box">
+            <div class="box_img">
+                <img src="image/6.jpg">
+            </div>
+        </div>
+        <div class="box">
+            <div class="box_img">
+                <img src="image/7.jpg">
+            </div>
+        </div>
+        <div class="box">
+            <div class="box_img">
+                <img src="image/8.jpg">
+            </div>
+        </div>
+        <div class="box">
+            <div class="box_img">
+                <img src="image/9.jpg">
+            </div>
+        </div>
+        <div class="box">
+            <div class="box_img">
+                <img src="image/10.jpg">
+            </div>
+        </div>
+        <div class="box">
+            <div class="box_img">
+                <img src="image/1.jpeg">
+            </div>
+        </div>
+        <div class="box">
+            <div class="box_img">
+                <img src="image/2.jpeg">
+            </div>
+        </div>
+        <div class="box">
+            <div class="box_img">
+                <img src="image/3.jpg">
+            </div>
+        </div>
+        <div class="box">
+            <div class="box_img">
+                <img src="image/4.jpeg">
+            </div>
+        </div>
+        <div class="box">
+            <div class="box_img">
+                <img src="image/5.jpg">
+            </div>
+        </div>
+        <div class="box">
+            <div class="box_img">
+                <img src="image/6.jpg">
+            </div>
+        </div>
+        <div class="box">
+            <div class="box_img">
+                <img src="image/7.jpg">
+            </div>
+        </div>
+        <div class="box">
+            <div class="box_img">
+                <img src="image/8.jpg">
+            </div>
+        </div>
+        <div class="box">
+            <div class="box_img">
+                <img src="image/9.jpg">
+            </div>
+        </div>
+        <div class="box">
+            <div class="box_img">
+                <img src="image/10.jpg">
+            </div>
+        </div>
+    </div>
+</body>
+</html>
