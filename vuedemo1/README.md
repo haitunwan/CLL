@@ -2,20 +2,12 @@
 
 > A Vue.js project
 
-## Build Setup
+## 初次学习Vue.js，这是第一个使用Vue框架做的前端项目（跟着一个网上教程做的例子，记录一下）
 
-``` bash
-# install dependencies
-npm install
+整个页面由一个layout组件组成，包括头部，正文，脚部，其中正文的内容是一个独立的组件
 
-# serve with hot reload at localhost:8080
-npm run dev
+## 效果图如下：
 
-# build for production with minification
-npm run build
+## 首页：
 
-# build for production and view the bundle analyzer report
-npm run build --report
-```
 
-For a detailed explanation on how things work, check out the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
